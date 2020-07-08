@@ -18,6 +18,10 @@ class Login extends Component {
 
     handleClick(event){
         if(this.state.username =="DOLLY" && this.state.password =="DOLLY"){
+            localStorage.setItem('username', this.state.username);
+            localStorage.setItem('password', this.state.password);
+
+
             this.setState({
                 login: true,
                 redirect: true,

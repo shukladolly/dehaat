@@ -10,8 +10,10 @@ class Dashboard extends Component {
         this.state = {
             explore: false,
             redirect: false,
+            books: ["book1", "book2", "book3", "book4", "book5", "book6", "book7", "book8", "book9"]
         }
     }
+
 
     handleClick(event){
         this.setState(prevState => ({
@@ -21,19 +23,22 @@ class Dashboard extends Component {
     }
 
     renderRedirect = () => {
-            return <Redirect to='/explore' />
+            return <Redirect to= {{pathname: '/explore', books: this.state.books, searchBook: this.searchBook }}/>
         
     };
+
+    searchBook() {
+        console.log("hey");
+      }
 
     render(){
         const {explore} = this.state;
 
         return(
             <div>
-                <button  onClick= {(event)=> this.handleClick(event)}>EXPLORE</button>
+                <button  onClick= {(event)=> this.handleClick(event) }>EXPLORE</button>
                 <button >COLLECTIONS</button>
                 <button >ARRIVALS</button>
-
                 {explore && this.renderRedirect()}
 
             </div>

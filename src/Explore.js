@@ -23,11 +23,25 @@ class Explore extends Component {
 
 
     render(){
+
+       console.log( this.props.location.books);
+        console.log(this.props)
         return(
             <div>
-                <p>HELLO</p>
                 <label htmlFor="search" >Search the book </label>
                 <input type = "text"  onChange={this.handleChange}></input>
+                {this.props.location.books.map(book => (
+                    <tr key={book}>
+                        <td>
+                            {book}
+                        </td>
+                        <td>
+                            <button onClick={() => this.props.searchBook(book) }>Add</button>
+                        </td>
+                    </tr>
+                )   
+                    )
+                }
             </div>
         )
     }
